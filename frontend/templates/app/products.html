@@ -1,0 +1,47 @@
+{% extends "app/base.html" %}
+{% block content %}
+
+
+<center>
+<h1 >PRODUCTS</h1>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Product Code</th>
+            <th>Price</th>
+            <th>GST</th>
+            <th>Food product</th>
+            <th>Image</th>
+            <th>UPdate</th>
+            <th>Delete</th>
+
+
+        </tr>
+     </thead>
+     <tbody>
+        {% for product in products %}
+         <tr>
+            <td>{{product.product_name}}</td>
+            <td>{{product.product_code}}</td>
+            <td>{{product.product_price}}</td>
+            <td>{{product.product_GST}}</td>
+            <td>{{product.food_product}}</td>
+            <td>{{product.image}}</td>
+            <td><a href="{% url 'app:product_update' product.id  %}"><button >update</button></a></td>
+            <td><a href="{% url 'app:product_delete' product.id  %}"><button >delete</button></a></td>
+        </tr>
+
+        {% endfor %}
+     </tbody>
+     </table>
+
+
+
+
+
+</center>
+
+{% endblock content %}
